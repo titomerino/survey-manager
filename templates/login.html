@@ -1,0 +1,40 @@
+<!-- login.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pt-5 d-flex justify-content-center align-items-center">
+    <div class="card" style="width: 100%; max-width: 400px;">
+        <div class="card-header text-center">
+            <h4>Iniciar sesión</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Nombre de usuario</label>
+                    {{ form.username }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_password" class="form-label">Contraseña</label>
+                    {{ form.password }}
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+            </form>
+
+            {% if messages %}
+                <div class="alert alert-danger mt-3">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        {% comment %} <div class="card-footer text-center">
+            <p class="mb-0">¿No tienes cuenta? <a href="{% url 'register' %}">Registrarse</a></p>
+        </div> {% endcomment %}
+    </div>
+</div>
+{% endblock %}

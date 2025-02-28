@@ -1,0 +1,42 @@
+<!-- person_new.html -->
+{% extends "base.html" %}
+
+{% block title %}Estudiantes{% endblock %}
+
+{% block content %}
+
+    {% include "parts/page_title.html" with page_title=" Información del Estudiante" %}
+
+    <div class="row">
+        <div class="col-sm-12 col-md-4 mb-3">
+            <div class="card position-sticky top-0">
+                <div class="card-body">
+                    <p>Actualiza tu información personal.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-8 mb-3">
+            <div class="card">
+                <div class="card-body">
+
+                    {% include "parts/message.html" %}
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary me-2">
+                            <i class="bi bi-save"></i>
+                            <span class="d-none d-lg-inline"> Guardar</span>
+                        </button>
+                        <a href="{% url 'student_list' %}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i>
+                            <span class="d-none d-lg-inline"> Volver atrás</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

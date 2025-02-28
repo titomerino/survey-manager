@@ -1,0 +1,38 @@
+<!-- Modal de confirmación -->
+<!-- Agrega en el boton de eliminar la clase delete-btn -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">{{ modal_title }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ modal_text }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a href="#" id="confirmDeleteBtn" class="btn {{modal_button_class}}">{{ modal_button_text }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+        let confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+
+        document.querySelectorAll(".modal-action-button").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                let studentName = this.dataset.name;
+                let deleteUrl = this.href;
+
+                confirmDeleteBtn.href = deleteUrl;
+
+                confirmDeleteModal.show();
+            });
+        });
+    });
+</script>
