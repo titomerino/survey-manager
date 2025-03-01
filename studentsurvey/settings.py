@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-=n_o(yku@3xfqm1h86*^s1bz*6bp#0&j6$0&%$y6*w2qv1tnu$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', 'survey-manager-production.up.railway.app']
 
 
 # Application definition
