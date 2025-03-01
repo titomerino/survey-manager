@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': os.getenv("POSTGRES_NAME", "postgres"),
         'USER': os.getenv("POSTGRES_USER", "postgres"),
         'PASSWORD': os.getenv("POSTGRES_PASSWORD", "postgres"),
-        'HOST': 'db',  # Este es el nombre del servicio de la base de datos en el docker-compose
+        'HOST': 'postgres',  # Este es el nombre del servicio de la base de datos en el docker-compose
         'PORT': '5432',  # Puerto por defecto de PostgreSQL
     }
 }
